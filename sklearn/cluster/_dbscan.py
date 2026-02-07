@@ -456,7 +456,8 @@ class DBSCAN(ClusterMixin, BaseEstimator):
             )
 
         # Initially, all samples are noise.
-        labels = np.full(X.shape[0], -1, dtype=np.intp)
+        n_samples = X.shape[0]
+        labels = np.full(n_samples, -1, dtype=np.intp)
 
         # A list of all core samples found.
         core_samples = np.asarray(n_neighbors >= self.min_samples, dtype=np.uint8)
